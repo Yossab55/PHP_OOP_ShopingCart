@@ -10,9 +10,45 @@ class Product
     private float $price;
     private int $availableQuantity;
 
-    // TODO Generate constructor with all properties of the class
-    // TODO Generate getters and setters of properties
-
+    public function __construct($id, $title, $price, $availableQuantity)
+    {
+        $this->id = $id;
+        $this->title = $title;
+        $this->price = $price;
+        $this->availableQuantity = $availableQuantity;
+    }
+    public function get_id()
+    {
+        return $this->id;
+    }
+    public function get_title()
+    {
+        return $this->title;
+    }
+    public function get_price()
+    {
+        return $this->price;
+    }
+    public function get_availableQuantity()
+    {
+        return $this->availableQuantity;
+    }
+    public function set_id($id)
+    {
+        $this->id = $id;
+    }
+    public function set_title($title)
+    {
+        $this->title = $title;
+    }
+    public function set_price($price)
+    {
+        $this->price = $price;
+    }
+    public function set_availableQuantity($availableQuantity)
+    {
+        $this->availableQuantity = $availableQuantity;
+    }
     /**
      * Add Product $product into cart. If product already exists inside cart
      * it must update quantity.
@@ -26,7 +62,9 @@ class Product
      */
     public function addToCart(Cart $cart, int $quantity): CartItem
     {
-        //TODO Implement method
+        $item = new CartItem();
+
+        return $item;
     }
 
     /**

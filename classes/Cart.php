@@ -6,7 +6,7 @@ class Cart
     /**
      * @var CartItem[]
      */
-    private array $items = [];
+    private array $carItems = [];
 
     // TODO Generate getters and setters of properties
 
