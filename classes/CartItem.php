@@ -27,6 +27,10 @@ class CartItem
     {
         return $this->product;
     }
+    public function get_quantity()
+    {
+        return $this->quantity;
+    }
     public function increaseQuantity()
     {
         //TODO $quantity must be increased by one.

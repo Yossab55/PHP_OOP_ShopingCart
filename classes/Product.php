@@ -59,9 +59,12 @@ class Product
         for($i = 0; $i < count($items); $i++) {
             if($items[$i]->get_product()->get_id() == $this->get_id()) {
                 $item = $items[$i];
+                $item->set_quantity($items);
+                $items[$i] = $item;
+                return $item;
             }
         }
-        if($item == null) $item = new CartItem($this, $quantity);
+        $item = new CartItem($this, $quantity);
         return $item;
     }
     public function removeFromCart(Cart $cart)
