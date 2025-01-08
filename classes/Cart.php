@@ -6,12 +6,16 @@ class Cart
     /**
      * @var CartItem[]
      */
-    private array $carItems = [];
+    private array $items = [];
 
     // TODO Generate getters and setters of properties
     public function get_items() 
     {
-        return $this->carItems;
+        return $this->items;
+    }
+    public function set_items($items) 
+    {
+        $this->items = $items;
     }
     /**
      * Add Product $product into cart. If product already exists inside cart

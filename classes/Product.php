@@ -3,6 +3,8 @@ use classes;
 
 namespace classes;
 
+use ArrayObject;
+
 class Product
 {
     private int $id;
@@ -62,14 +64,15 @@ class Product
         if($item == null) $item = new CartItem($this, $quantity);
         return $item;
     }
-
-    /**
-     * Remove product from cart
-     *
-     * @param Cart $cart
-     */
     public function removeFromCart(Cart $cart)
     {
-        //TODO Implement method
+        $items = $cart->get_items();
+        for($i = 0; $i < count($items); $i++) {
+            if($items[$i]->get_product()->get_id() == $this->get_id())
+            {
+                $cart->set_items(array_slice($items, 0, $i) + array_slice($items, $i + 1));
+                return;
+            }
+        }
     }
 }
