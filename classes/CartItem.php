@@ -22,6 +22,7 @@ class CartItem
         $this->quantity += $quantity;
         if($this->quantity > $this->product->get_availableQuantity())
             $this->quantity = $this->product->get_availableQuantity();
+        if($this->quantity == 0) unset($this);
     }
     public function get_product()
     {
@@ -33,13 +34,11 @@ class CartItem
     }
     public function increaseQuantity()
     {
-        //TODO $quantity must be increased by one.
-        // Bonus: $quantity must not become more than whatever is Product::$availableQuantity
+        $this->set_quantity(1);
     }
 
     public function decreaseQuantity()
     {
-        //TODO $quantity must be increased by one.
-        // Bonus: Quantity must not become less than 1
+        $this->set_quantity(-1);
     }
 }
