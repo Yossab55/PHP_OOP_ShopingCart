@@ -8,7 +8,6 @@ class Cart
      */
     private array $items = [];
 
-    // TODO Generate getters and setters of properties
     public function get_items() 
     {
         return $this->items;
@@ -30,7 +29,16 @@ class Cart
      */
     public function addProduct(Product $product, int $quantity): CartItem
     {
-        //TODO Implement method
+        $items = $this->get_items();
+        for($i = 0; count($items); $i++) {
+            if($items[$i]->get_product()->get_id() === $product->get_id()) {
+                $item = $items[$i];
+                $item->set_quantity($quantity);
+                return $item;
+            }
+        }  
+        $item = new CartItem($product, $quantity);
+        return $item;
     }
 
     /**
