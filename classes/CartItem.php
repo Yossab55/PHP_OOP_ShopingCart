@@ -1,11 +1,10 @@
 <?php
 
-namespace classes;
 
 class CartItem
 {
     private Product $product;
-    private int $quantity;
+    private int $quantity = 0;
 
     public function __construct($product, $quantity)
     {
@@ -22,7 +21,7 @@ class CartItem
         $this->quantity += $quantity;
         if($this->quantity > $this->product->get_availableQuantity())
             $this->quantity = $this->product->get_availableQuantity();
-        if($this->quantity == 0) unset($this);
+        if($this->quantity == 0) $this->quantity = 1;
     }
     public function get_product()
     {

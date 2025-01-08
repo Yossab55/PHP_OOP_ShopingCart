@@ -1,6 +1,5 @@
 <?php
 
-namespace classes;
 class Cart
 {
     /**
@@ -35,7 +34,7 @@ class Cart
     public function removeProduct(Product $product)
     {
         $items = $this->get_items();
-        for($i = 0; count($items); $i++) {
+        for($i = 0; $i < count($items); $i++) {
             if($items[$i]->get_product()->get_id() === $product->get_id()) {
                 $this->set_items(array_slice($this->items, 0, $i) 
                 + array_slice($this->items, $i + 1));
@@ -47,7 +46,7 @@ class Cart
     {
         $result = 0;
         $items = $this->get_items();
-        for($i = 0; count($items); $i++) {
+        for($i = 0; $i < count($items); $i++) {
             $result += $items[$i]->get_quantity();
         }
         return $result;
@@ -58,7 +57,7 @@ class Cart
     {
         $result = 0.0;
         $items = $this->get_items();
-        for($i = 0; count($items); $i++) {
+        for($i = 0; $i < count($items); $i++) {
             $result += $items[$i]->get_quantity() * $items[$i]->get_product()->get_price();
         }
         return $result;
