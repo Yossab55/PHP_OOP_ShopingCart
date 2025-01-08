@@ -9,7 +9,10 @@ class Cart
     private array $carItems = [];
 
     // TODO Generate getters and setters of properties
-
+    public function get_items() 
+    {
+        return $this->carItems;
+    }
     /**
      * Add Product $product into cart. If product already exists inside cart
      * it must update quantity.

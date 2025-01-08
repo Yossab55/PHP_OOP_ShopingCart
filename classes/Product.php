@@ -49,21 +49,17 @@ class Product
     {
         $this->availableQuantity = $availableQuantity;
     }
-    /**
-     * Add Product $product into cart. If product already exists inside cart
-     * it must update quantity.
-     * This must create CartItem and return CartItem from method
-     * Bonus: $quantity must not become more than whatever
-     * is $availableQuantity of the Product
-     *
-     * @param Cart $cart
-     * @param int $quantity
-     * @return CartItem
-     */
     public function addToCart(Cart $cart, int $quantity): CartItem
     {
-        $item = new CartItem();
-
+        $items = $cart->get_items();
+        $item = null;
+        
+        for($i = 0; $i < count($items); $i++) {
+            if($items[$i]->get_product()->get_id() == $this->get_id()) {
+                $item = $items[$i];
+            }
+        }
+        if($item == null) $item = new CartItem($this, $quantity);
         return $item;
     }
 
