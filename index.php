@@ -1,5 +1,7 @@
 <?php
-
+// link of the project video : https://youtu.be/1Ip7_hdSqzY?list=PLXFS5tZPxtomMfQskzgXmfLd3GbX81oX0
+// link of my answer: https://github.com/Yossab55/PHP_OOP_ShopingCart
+//* good luck with you ❤️
 require_once "classes/Cart.php";
 require_once "classes/CartItem.php";
 require_once "classes/Product.php";
