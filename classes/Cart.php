@@ -18,7 +18,7 @@ class Cart
     public function addProduct(Product $product, int $quantity): CartItem
     {
         $items = $this->get_items();
-        for($i = 0; count($items); $i++) {
+        for($i = 0; $i < count($items); $i++) {
             if($items[$i]->get_product()->get_id() === $product->get_id()) {
                 $item = $items[$i];
                 $item->set_quantity($quantity);

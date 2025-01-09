@@ -48,20 +48,7 @@ class Product
     }
     public function addToCart(Cart $cart, int $quantity): CartItem
     {
-        $items = $cart->get_items();
-        for($i = 0; $i < count($items); $i++) {
-            if($items[$i]->get_product()->get_id() == $this->get_id()) {
-                $item = $items[$i];
-                $item->set_quantity($items);
-                $items[$i] = $item;
-                $cart->set_items($items);
-                return $item;
-            }
-        }
-        $item = new CartItem($this, $quantity);
-        array_push($items, $item);
-        $cart->set_items($items);
-        return $item;
+        return $cart->addProduct($this, $quantity);
     }
     public function removeFromCart(Cart $cart)
     {
